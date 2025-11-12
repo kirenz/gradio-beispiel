@@ -9,7 +9,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=API_KEY)
 
-MODEL_NAME = "gemnini-2.0-flash"
+MODEL_NAME = "gemini-2.0-flash"
 
 def generate_text(prompt):
     response = client.models.generate_content(
