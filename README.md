@@ -45,5 +45,5 @@ Integriertes Temrinal in VS Code öffnen oder externes Terminal nutzen:
 
 ## Gemini
 
-Bei [Google AI Studio](https://aistudio.google.com/) einen API-Schlüssel generieren und in der `.env`-Datei speichern:
+Bei [Google AI Studio](https://aistudio.google.com/api-keys) einen API-Schlüssel generieren und in der `.env`-Datei speichern:
 
