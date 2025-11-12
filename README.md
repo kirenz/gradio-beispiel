@@ -1,4 +1,4 @@
-# Gradio-Beispiel für Einsteiger
+# Gradio-Beispiel
 
 Dieses Repository enthält ein minimales Gradio-Projekt (`hello_gradio.py`), das Schritt für Schritt zeigt, wie Sie eine kleine Weboberfläche für Python-Funktionen erstellen. 
 
