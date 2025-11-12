@@ -1,49 +1,77 @@
 # Gradio-Beispiel
 
-Dieses Repository enthält ein minimales Gradio-Projekt (`hello_gradio.py`), das Schritt für Schritt zeigt, wie Sie eine kleine Weboberfläche für Python-Funktionen erstellen. 
+Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege zeigen, wie man Python-Funktionen als Weboberfläche bereitstellt – von der einfachen `gr.Interface`-Variante bis zum frei gestaltbaren `gr.Blocks`-Layout und einer Anbindung an Googles Gemini-API.
 
 ## Voraussetzungen
 
-- **uv**: Moderner Paket- und Projektmanager (https://github.com/astral-sh/uv). Installieren Sie ihn einmalig laut Projektseite.
+- [uv](https://github.com/astral-sh/uv) ist installiert (verwaltet Abhängigkeiten und virtuelle Umgebung).
+- Python 3.11 (wird von uv automatisch bereitgestellt).
+- Für `gradio_gemini.py`: Ein Gemini-API-Schlüssel aus [Google AI Studio](https://aistudio.google.com/api-keys).
 
-## Schritt-für-Schritt Setup
+## Setup
 
-1. **Projekt anlegen im Terminal (macOS) oder Git Bash (Windows)**
-   ```bash
-   uv init gradio-beispiel --python 3.11
-   ```
-   Dadurch legt uv ein neues Projektverzeichnis inklusive virtueller Umgebung an.
-
-2. **Ins Projekt wechseln**
+1. Repository klonen oder herunterladen.
+2. Ins Projekt wechseln:
    ```bash
    cd gradio-beispiel
    ```
-
-3. **Abhängigkeiten hinzufügen**
+3. Abhängigkeiten installieren (legt auch die virtuelle Umgebung an):
    ```bash
-   uv add gradio google-genai python-dotenv
+   uv sync
    ```
-   - `gradio`: stellt die Weboberfläche bereit.
-   - `google-genai`: Beispiel-Client für Google Generative AI 
-   - `python-dotenv`: lädt API-Schlüssel oder andere Variablen aus einer `.env`-Datei.
-
-4. **Editor öffnen**
-   Starten Sie z. B. VS Code im aktuellen Ordner, um den Code zu bearbeiten:
+4. Optional Editor öffnen, z. B. mit VS Code:
    ```bash
    code .
    ```
 
-## Beispieldatei ausführen
+## Überblick über die Beispiele
 
-Integriertes Temrinal in VS Code öffnen oder externes Terminal nutzen:
+- `hello_gradio.py` – minimaler Einstieg mit `gr.Interface`.
+- `hello_gradio_blocks.py` – gleiche Logik, aber mit manuell aufgebautem Blocks-Layout.
+- `gradio_components.py` – zeigt mehrere Eingabe- und Ausgabekomponenten in einem Interface.
+- `gradio_components_blocks.py` – dasselbe Szenario, frei arrangiert mit Rows und Buttons.
+- `gradio_gemini.py` – verbindet eine Textbox mit Googles Gemini-Modell und nutzt `gr.Blocks`.
 
-1. Stellen Sie sicher, dass Sie sich im Projektordner befinden.
-2. Führen Sie das Beispiel aus:
-   ```bash
-   uv run python main.py
-   ```
+## Gemini konfigurieren
 
-## Gemini
+Für `gradio_gemini.py` wird eine `.env`-Datei mit folgendem Inhalt benötigt:
 
-Bei [Google AI Studio](https://aistudio.google.com/api-keys) einen API-Schlüssel generieren und in der `.env`-Datei speichern:
+```
+GEMINI_API_KEY=api_schluessel
+```
 
+Die Datei darf **nicht** eingecheckt werden, damit der Schlüssel privat bleibt.
+
+## Anwendungen starten
+
+Alle Beispiele lassen sich direkt über uv starten. Die folgenden Befehle immer aus dem Projektordner heraus ausführen; uv sorgt automatisch für die richtige Umgebung.
+
+Hello World mit Interface
+
+```bash
+uv run python hello_gradio.py
+```
+
+Hello World mit Blocks
+
+```bash
+uv run python hello_gradio_blocks.py
+```
+
+Komponenten-Demo mit Interface
+
+```bash
+uv run python gradio_components.py
+```
+
+Komponenten-Demo mit Blocks
+
+```bash
+uv run python gradio_components_blocks.py
+```
+
+Gemini Text Generator (benötigt gültigen GEMINI_API_KEY)
+
+```bash
+uv run python gradio_gemini.py
+```
