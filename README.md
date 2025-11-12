@@ -42,3 +42,8 @@ Integriertes Temrinal in VS Code öffnen oder externes Terminal nutzen:
    ```bash
    uv run python main.py
    ```
+
+## Gemini
+
+Bei [Google AI Studio](https://aistudio.google.com/) einen API-Schlüssel generieren und in der `.env`-Datei speichern:
+
