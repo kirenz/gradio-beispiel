@@ -75,3 +75,5 @@ Gemini Text Generator (benötigt gültigen GEMINI_API_KEY)
 ```bash
 uv run python gradio_gemini.py
 ```
+
+> **Wichtig:** Immer nur eine Gradio-App gleichzeitig laufen lassen. Um eine laufende App zu beenden, ins Terminal wechseln und `Strg + C` (macOS/Linux) bzw. `Ctrl + C` (Windows) drücken. Erst danach den nächsten `uv run`-Befehl ausführen.
