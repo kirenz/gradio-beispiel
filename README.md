@@ -28,6 +28,12 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
 ## Setup
 
 1. Repository klonen oder herunterladen.
+
+    ```bash
+    git clone https://github.com/kirenz/gradio-beispiel
+    ```
+    
+
 2. Ins Projekt wechseln:
    ```bash
    cd gradio-beispiel
