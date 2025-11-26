@@ -14,7 +14,7 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
 - [Überblick über die Beispiele](#überblick-über-die-beispiele)
 - [Gemini konfigurieren](#gemini-konfigurieren)
 - [Anwendungen starten](#anwendungen-starten)
-- [Was Sie erwarten können](#was-sie-erwarten-können)
+- [Was nach dem Start passiert](#was-nach-dem-start-passiert)
 - [Troubleshooting](#troubleshooting)
 - [Weiterführende Ressourcen](#weiterführende-ressourcen)
 - [Lizenz](#lizenz)
@@ -84,64 +84,61 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
 
 Für `gradio_gemini.py` wird eine `.env`-Datei mit folgendem Inhalt benötigt:
 
-1. Erstellen Sie eine `.env`-Datei im Hauptverzeichnis des Projekts:
-   ```bash
-   touch .env
-   ```
+1. Eine `.env`-Datei im Hauptverzeichnis des Projekts erstellen (mit einem Texteditor oder IDE).
 
-2. Fügen Sie Ihren API-Schlüssel hinzu:
+2. Den API-Schlüssel in der Datei hinterlegen:
    ```
    GEMINI_API_KEY=IhrApiSchluesselHier
    ```
 
 3. **Wichtig:** Die `.env`-Datei ist bereits in `.gitignore` eingetragen und wird **nicht** ins Repository eingecheckt, damit der Schlüssel privat bleibt.
 
-4. API-Schlüssel erhalten Sie kostenlos bei [Google AI Studio](https://aistudio.google.com/api-keys).
+4. API-Schlüssel können kostenlos bei [Google AI Studio](https://aistudio.google.com/api-keys) bezogen werden.
 
 ## Anwendungen starten
 
-Alle Beispiele lassen sich direkt über uv starten. Die folgenden Befehle immer aus dem Projektordner heraus ausführen; uv sorgt automatisch für die richtige Umgebung.
+Alle Beispiele lassen sich direkt über uv starten. Die folgenden Befehle aus dem Projektordner heraus ausführen; uv sorgt automatisch für die richtige Umgebung.
 
-Hello World mit Interface
-
-```bash
-uv run python hello_gradio.py
-```
-
-Hello World mit Blocks
+**Hello World mit Interface**
 
 ```bash
-uv run python hello_gradio_blocks.py
+uv run hello_gradio.py
 ```
 
-Komponenten-Demo mit Interface
+**Hello World mit Blocks**
 
 ```bash
-uv run python gradio_components.py
+uv run hello_gradio_blocks.py
 ```
 
-Komponenten-Demo mit Blocks
+**Komponenten-Demo mit Interface**
 
 ```bash
-uv run python gradio_components_blocks.py
+uv run gradio_components.py
 ```
 
-Gemini Text Generator (benötigt gültigen GEMINI_API_KEY)
+**Komponenten-Demo mit Blocks**
 
 ```bash
-uv run python gradio_gemini.py
+uv run gradio_components_blocks.py
 ```
 
-> **Wichtig:** Immer nur eine Gradio-App gleichzeitig laufen lassen. Um eine laufende App zu beenden, ins Terminal wechseln und `Strg + C` (macOS/Linux) bzw. `Ctrl + C` (Windows) drücken. Erst danach den nächsten `uv run`-Befehl ausführen.
+**Gemini Text Generator** (benötigt gültigen GEMINI_API_KEY)
 
-## Was Sie erwarten können
+```bash
+uv run gradio_gemini.py
+```
+
+> **Wichtig:** Immer nur eine Gradio-App gleichzeitig laufen lassen. Um eine laufende App zu beenden, ins Terminal wechseln und `Strg + C` bzw. `Ctrl + C` drücken. Erst danach den nächsten `uv run`-Befehl ausführen.
+
+## Was nach dem Start passiert
 
 Nach dem Start einer Gradio-App:
 
 1. **Lokaler Server**: Gradio startet automatisch einen lokalen Webserver (standardmäßig auf Port 7860)
 2. **Browser-Zugriff**: Die URL wird im Terminal angezeigt (z.B. `http://127.0.0.1:7860`)
 3. **Automatisches Öffnen**: In den meisten Fällen öffnet sich automatisch ein Browser-Tab
-4. **Interaktive UI**: Sie sehen eine webbasierte Benutzeroberfläche mit den definierten Komponenten
+4. **Interaktive UI**: Eine webbasierte Benutzeroberfläche mit den definierten Komponenten erscheint
 5. **Live-Reload**: Änderungen am Python-Code erfordern einen Neustart der App
 
 ### Unterschiede zwischen Interface und Blocks
@@ -165,8 +162,8 @@ Nach dem Start einer Gradio-App:
 **Problem**: `OSError: [Errno 48] Address already in use`
 
 **Lösung**: 
-- Eine andere Gradio-App läuft noch. Beenden Sie diese mit `Strg/Ctrl + C`
-- Oder starten Sie auf einem anderen Port:
+- Eine andere Gradio-App läuft noch. Diese mit `Strg/Ctrl + C` beenden
+- Alternativ auf einem anderen Port starten:
   ```python
   demo.launch(server_port=7861)
   ```
@@ -176,9 +173,9 @@ Nach dem Start einer Gradio-App:
 **Problem**: `AuthenticationError` oder `API key not found`
 
 **Lösung**:
-- Überprüfen Sie, ob die `.env`-Datei im Hauptverzeichnis existiert
-- Stellen Sie sicher, dass der API-Schlüssel korrekt eingetragen ist (ohne Anführungszeichen)
-- Prüfen Sie, ob der API-Schlüssel bei Google AI Studio aktiv ist
+- Überprüfen, ob die `.env`-Datei im Hauptverzeichnis existiert
+- Sicherstellen, dass der API-Schlüssel korrekt eingetragen ist (ohne Anführungszeichen)
+- Prüfen, ob der API-Schlüssel bei Google AI Studio aktiv ist
 
 ### Python-Version
 
@@ -206,4 +203,4 @@ uv sync
 
 ## Lizenz
 
-Dieses Projekt dient zu Lehr- und Demonstrationszwecken. Bitte beachten Sie die Nutzungsbedingungen der verwendeten APIs (insbesondere Google Gemini API).
+Dieses Projekt dient zu Lehr- und Demonstrationszwecken. Die Nutzungsbedingungen der verwendeten APIs (insbesondere Google Gemini API) sind zu beachten.
