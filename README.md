@@ -1,7 +1,9 @@
 # Gradio-Beispiel
 
 ![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)
+![uv](https://img.shields.io/badge/uv-managed-430f8e.svg?style=flat&logo=python&logoColor=white)
 ![Gradio Version](https://img.shields.io/badge/gradio-6.1.0-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege zeigen, wie man Python-Funktionen als Weboberfläche bereitstellt – von der einfachen `gr.Interface`-Variante bis zum frei gestaltbaren `gr.Blocks`-Layout und einer Anbindung an Googles Gemini-API.
 
@@ -9,8 +11,6 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
 
 >[!WARNING]
 >Wir nutzen die Gradio-Version 6.1.0. 
-
-
 
 
 ## Inhaltsverzeichnis
@@ -28,8 +28,7 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
 ## Voraussetzungen
 
 - [uv](https://github.com/astral-sh/uv) ist installiert (verwaltet Abhängigkeiten und virtuelle Umgebung).
-- Python 3.11 (wird von uv automatisch bereitgestellt).
-- Für `gradio_gemini.py`: Ein Gemini-API-Schlüssel aus [Google AI Studio](https://aistudio.google.com/api-keys).
+- Für `gradio_gemini.py` und `gradio_adk.py`: Ein Google API-Schlüssel aus [Google AI Studio](https://aistudio.google.com/api-keys).
 
 ## Setup
 
@@ -48,10 +47,7 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
    ```bash
    uv sync
    ```
-4. Optional Editor öffnen, z. B. mit VS Code:
-   ```bash
-   code .
-   ```
+4. Den Ordner im Code-Editor öffnen, z. B. mit VS Code.
 
 ## Überblick über die Beispiele
 
@@ -86,14 +82,20 @@ Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege
   - Zeigt die Arbeit mit externen APIs (Google Gemini)
   - Benötigt API-Schlüssel (siehe [Gemini konfigurieren](#gemini-konfigurieren))
 
+### 4. Agent-Entwicklung
+
+- **`gradio_adk.py`** – Zeit-Agent mit Google ADK (Agent Development Kit) und Gradio
+  - Einführung in die Agent-Entwicklung mit Googles ADK-Framework
+  - Zeigt, wie Agenten Werkzeuge (Tools) nutzen können (z.B. aktuelle Uhrzeit abrufen)
+  - Kombiniert LLM-Fähigkeiten mit benutzerdefinierten Funktionen
+  - Demonstriert asynchrone Programmierung mit `async/await`
+  - Benötigt API-Schlüssel (siehe [Gemini konfigurieren](#gemini-konfigurieren))
+
 ## Gemini konfigurieren
 
-Für `gradio_gemini.py` wird eine `.env`-Datei mit folgendem Inhalt benötigt:
+Für `gradio_gemini.py` und gradio_adk.py wird eine `.env`-Datei benötigt:
 
-1. Erstellen Sie eine `.env`-Datei im Hauptverzeichnis des Projekts:
-   ```bash
-   touch .env
-   ```
+1. Die Datei `.example.env` in `.env` umbebennen.
 
 2. Fügen Sie Ihren API-Schlüssel hinzu:
    ```
@@ -107,6 +109,10 @@ Für `gradio_gemini.py` wird eine `.env`-Datei mit folgendem Inhalt benötigt:
 ## Anwendungen starten
 
 Alle Beispiele lassen sich direkt über uv starten. Die folgenden Befehle immer aus dem Projektordner heraus ausführen; uv sorgt automatisch für die richtige Umgebung.
+
+>[!WARNING] 
+>Immer nur eine Gradio-App gleichzeitig laufen lassen. Um eine laufende App zu beenden, ins Terminal wechseln und `Strg + C` (macOS/Linux) bzw. `Ctrl + C` (Windows) drücken. Erst danach den nächsten `uv run`-Befehl ausführen.
+
 
 Hello World mit Interface
 
@@ -138,7 +144,14 @@ Gemini Text Generator (benötigt gültigen GEMINI_API_KEY)
 uv run python gradio_gemini.py
 ```
 
-> **Wichtig:** Immer nur eine Gradio-App gleichzeitig laufen lassen. Um eine laufende App zu beenden, ins Terminal wechseln und `Strg + C` (macOS/Linux) bzw. `Ctrl + C` (Windows) drücken. Erst danach den nächsten `uv run`-Befehl ausführen.
+Zeit-Agent mit ADK (benötigt gültigen GOOGLE_API_KEY)
+
+```bash
+uv run python gradio_adk.py
+```
+
+Der Hinweis "App name mismatch detected. The runner is configured with app name "root_agent", but the root agent was loaded from "/Users/jankirenz/code/semester/ws2526/gradio-beispiel/.venv/lib/python3.11/site-packages/google/adk/agents", which implies app name "agents"." kann ignoriert werden. Er tritt auf, weil uv die Anwendung in einer virtuellen Umgebung ausführt.
+
 
 ## Was Sie erwarten können
 
