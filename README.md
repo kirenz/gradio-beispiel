@@ -1,11 +1,17 @@
 # Gradio-Beispiel
 
 ![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)
-![Gradio Version](https://img.shields.io/badge/gradio-5.49.1-orange.svg)
+![Gradio Version](https://img.shields.io/badge/gradio-6.1.0-orange.svg)
 
 Dieses Repository enthält mehrere kleine Gradio-Apps, die unterschiedliche Wege zeigen, wie man Python-Funktionen als Weboberfläche bereitstellt – von der einfachen `gr.Interface`-Variante bis zum frei gestaltbaren `gr.Blocks`-Layout und einer Anbindung an Googles Gemini-API.
 
 [Gradio](https://www.gradio.app/) ist ein Python-Framework, mit dem sich interaktive Webanwendungen für Machine Learning und Data Science ohne Frontend-Kenntnisse erstellen lassen. Die Beispiele in diesem Repository zeigen sowohl die Grundlagen als auch fortgeschrittene Techniken.
+
+>[!WARNING]
+>Wir nutzen die Gradio-Version 6.1.0. 
+
+
+
 
 ## Inhaltsverzeichnis
 
@@ -182,7 +188,7 @@ Nach dem Start einer Gradio-App:
 
 ### Python-Version
 
-**Problem**: Falshe Python-Version wird verwendet
+**Problem**: Falsche Python-Version wird verwendet
 
 **Lösung**:
 - `uv` verwaltet automatisch die korrekte Python-Version (3.11)
@@ -204,6 +210,3 @@ uv sync
 - [Google Gemini API-Dokumentation](https://ai.google.dev/docs)
 - [uv Package Manager](https://github.com/astral-sh/uv)
 
-## Lizenz
-
-Dieses Projekt dient zu Lehr- und Demonstrationszwecken. Bitte beachten Sie die Nutzungsbedingungen der verwendeten APIs (insbesondere Google Gemini API).
